@@ -12,6 +12,8 @@ $$1, 2, 3, 5, 8, 13, 21, 34, 55, 89, \dots$$</p>
 <p>By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.</p>
 """
 
+#Generate a Fibonacci sequence and create a list to store it
+
 def fib_generator(end_num):
   fib_s = [1,2]
   while True:
@@ -23,16 +25,21 @@ def fib_generator(end_num):
     break
   return(fib_s)
 
+#I have to admit this is not the best approach
+#Assign the last index value for the Fibonacci sequence list
 target_fib = fib_generator(90)
 
+#Make sure that the last value does not exceed 4 million
 if target_fib[-1] >= 4000000:
   target_fib.pop(-1)
 
 print(target_fib)
 
+#Fetch all the even number in Fibonacci sequence list and store them in another new list
 target_fib_num = []
 for x in target_fib:
   if x % 2 == 0:
     target_fib_num.append(x)
 
+#Aggregate all the even number
 print(sum(target_fib_num))
